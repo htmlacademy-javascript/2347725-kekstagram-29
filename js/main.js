@@ -59,7 +59,7 @@ const DESCRIPTION = [
   'Посмотрите только! Проститутки, наркоманки...!',
   'Дороги на Териберку просто нет.',
   'Мой любимый отель. Del Luna.',
-]
+];
 
 //Генерируем случайное число в диапазоне
 const getRandomInteger = (a, b) => {
@@ -84,14 +84,12 @@ const newId = getId();
 const newUrl = getId();
 
 //Создаем один комментарий
-const createComment = () => {
-  return {
-    id: getRandomInteger(1, 999),  //любое число
-    avatar: 'img/avatar-' + getRandomInteger(1, 6) + '.svg',
-    message: Array.from({length: getRandomInteger(1, 2)}, () => getRandomArrayElement(COMMENTTEXT)).join(' '),
-    name: getRandomArrayElement(NAMES) + ' ' + getRandomArrayElement(SURNAMES),
-  };
-};
+const createComment = () => ({
+  id: getRandomInteger(1, 999),
+  avatar: `img/avatar-${getRandomInteger(1, 6)}.svg`,
+  message: Array.from({length: getRandomInteger(1, 2)}, () => getRandomArrayElement(COMMENTTEXT)).join(' '),
+  name: `${getRandomArrayElement(NAMES)} ${getRandomArrayElement(SURNAMES)}`,
+});
 
 //Пак комментариев от 0 до 30 шт.
 const createComments = () =>
@@ -101,15 +99,14 @@ const createComments = () =>
   );
 
 // Создаем одно фото с паком комментариев
-const createPhoto = () => {
-  return {
-    id: newId(),
-    url: 'photos/' + newUrl() + '.jpg',
-    description: getRandomArrayElement(DESCRIPTION),
-    likes: getRandomInteger(15, 200),
-    comments: createComments(),
-  };
-};
+const createPhoto = () => ({
+  id: newId(),
+  url: `photos/${newUrl()}.jpg`,
+  description: getRandomArrayElement(DESCRIPTION),
+  likes: getRandomInteger(15, 200),
+  comments: createComments(),
+});
 
 // 25 объектов
-const createPhotos = Array.from({length: 25}, createPhoto);
+const createPhotos = () => Array.from({length: 25}, createPhoto);
+createPhotos();
