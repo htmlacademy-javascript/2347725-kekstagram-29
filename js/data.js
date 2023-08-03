@@ -91,4 +91,4 @@ const createPhoto = () => ({
 // 25 объектов
 const createPhotos = () => Array.from({length: 25}, createPhoto);
 
-export {createPhotos};
+export { createPhotos };
