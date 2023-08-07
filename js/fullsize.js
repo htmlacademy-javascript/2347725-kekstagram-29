@@ -40,8 +40,8 @@ function onDocumentKeydown(evt) {
   if (evt.key === 'Escape') {
     evt.preventDefault();
     hideBigPicture();
-  };
-};
+  }
+}
 
 const onCancelButtonClick = () => {
   hideBigPicture();
