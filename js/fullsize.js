@@ -30,7 +30,7 @@ const renderComments = () => {
 
   if (commentsShown >= comments.length) {
     commentsLoaderElement.classList.add('hidden');
-    commentsShown = comments.lenght;
+    commentsShown = comments.length;
   } else {
     commentsLoaderElement.classList.remove('hidden');
   }
